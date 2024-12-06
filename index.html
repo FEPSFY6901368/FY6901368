@@ -16,6 +16,38 @@
       <hr>
 <video src="e6578860-884a-2e57-46c6-90d1c5147c86_custom.mp4" width="800" height="450" controls>
 </video>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Last Updated Timestamp Example</title>
+    <style>
+        #lastUpdated {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Last Updated Timestamp </h1>
+    <p id="lastUpdated">Last Updated: </p>
+
+    <script>
+        function displayLastUpdated() {
+            // Get the current date and time
+            const now = new Date();
+            // Format the date and time as a string
+            const dateTimeString = now.toLocaleString();
+            // Display the last updated date and time in the specified HTML element
+            document.getElementById("lastUpdated").innerText = `Last Updated: ${dateTimeString}`;
+        }
+
+        // Call the function to display the last updated timestamp when the page loads
+        window.onload = displayLastUpdated;
+    </script>
+</body>
+</html>
+
     <!style for tables>
     <style>
       table {
