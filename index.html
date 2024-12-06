@@ -141,20 +141,20 @@
 <h3 id="Introduction">Introduction</h3>
       <P class="ex1">
         
-        <pre>
+        <pre id="Introduction_InText">
        In recent years, bamboo has emerged as a versatile and sustainable building material due to its exponential growth,
        strength, and flexibility. Its primary applications range from constructing walls and roofs to scaffolding, which is
        important in regions prone to earthquakes. Although bamboo offers eco-friendliness, affordability and durability,
        challenges like susceptibility to pests and fungi highlight the need for proper maintenance. This article delves into
        the properties, advantages, and limitations of bamboo, giving evidence to its potential to transform modern construction
        in an environmentally sustainable manner.    
-          <div id="Introduction">...</div>
+  
     </pre>
     </p>
       
   <h3 id="Mechanical properties">Mechanical properties</h3>
 <p class="ex1">
-    <pre>
+    <pre id="MechProperties_InText">
        1. <u>Tensile strength</u>
        Bamboo's fiber composition consists of cell walls that are rich in long, aligned cellulose fibres that provide significant
        resistance to pulling forces, making them strong in tension. Recent studies <a href="https://www.guaduabamboo.com/blog/mechanical-properties-of-bamboo" target="_blank">(Guadua Bamboo, n.d.)</a>; <a href="https://doi.org/10.1088/2043-6262/15/4/567" target="_blank">(Sánchez et al., 2019)</a>
@@ -176,7 +176,6 @@
       which is comparable to lightweight woods but less dense than concrete (2,400 kg/m³) or steel (7850 kg/m³). Bamboos have low density, making them the 
       ideal choice for construction where  weight reduction is crucial especially for scaffolding and creating lightweight roof structures. <a href="https://iarjset.com/wp-content/uploads/2019/09/IARJSET.2019.6906.pdf"_blank">IARJSET,(2019)</a>
       
-      <div id="MechanicalProperties">...</div>
     </pre>
 </p>
       <h3 id="Analysis and discussion">Analysis and discussion</h3>
@@ -224,7 +223,7 @@
 
   <u>Analysis of graph</u>
   <p class="ex1">
-    <pre>
+    <pre id="GraphAnalysis_InText">
   Bamboo is light with a density of 700 kg/m³. That makes it lighter than concrete, which is 2400 kg/m³, and steel, which is 7850 kg/m³. 
   It’s a bit heavier than softwood at 500 kg/m³, but it matches hardwood, which ranges from 700 to 1200 kg/m³. Because of its low density, 
   bamboo works great where light materials are needed. For instance, it's often used in building walls that can withstand earthquakes. These 
@@ -245,7 +244,7 @@
 <u>References for graph</u>
   
       <p class="ex1">
-        <pre>
+        <pre id= "RefGraph_InText">
  <b>Bamboo Properties:</b> Guaduabamboo.com. (n.d.). <em>Applications of Bamboo in Construction</em>. Retrieved from <a href="https://www.guaduabamboo.com/blog/mechanical-properties-of-bamboo" target="_blank">Guadua Bamboo</a>.
  <b>Timber Properties:</b> American Bamboo Society. (2021). <em>Mechanical Properties of Bamboo vs. Timber</em>. Retrieved from <a href="https://www.americanbamboo.org/wp-content/uploads/2021/03/JABSv29_Sanchez_20191007.pdf" target="_blank">American Bamboo Society</a>.
  <b>Concrete and Steel:</b> General industry data from construction materials research.
@@ -259,7 +258,7 @@
       
       <h3 id="Applications in construction">Applications in construction</h3>
       <p class="ex1">
-        <pre>
+        <pre id="Applications_InText">
    1.<u>Scaffolding</u>
     Thanks to their exceptional ability to support heavy loads, bamboo is widely regarded as an ideal material for scaffolding, including talll structures. 
     Extensions made from bamboo canes are created by lashing the ends together with multiple ropes. The arrangement of these ties are important as it helps 
@@ -303,7 +302,7 @@
         </pre>
       <h3 id="Conclusion">Conclusion</h3>
       <p class="ex1">
-        <pre>
+        <pre id="Conclusion_InText">
   Bamboo stands out as a sustainable budiling material, offering outstanding mechanical properties like high tensile strength and low density. Its versatility allows
   for diverse applications, from scaffolding to roofing solutions and resilient bridges. While there are challenges such as pest susceptibility, proper treatment can 
   help resolve these issues. Overall, bamboo's strength, flexibility, and eco-friendliness makes it an optimal option in modern construction,
@@ -351,6 +350,7 @@ document.getElementById("date&time").innerHTML=d;
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
    <!-- Last commit time display -->
+<body>
 <div id="last-updated">Loading last update time...</div>
 <!-- Verify Button -->
 <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
@@ -415,14 +415,22 @@ document.getElementById("date&time").innerHTML=d;
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction");
-    const AnalysisCount = displayWordCount("Analysis and discussion");
+    const IntroductionCount = displayWordCount("Introduction_InText");
+    const MechanicalProps = displayWordCount("MechProperties_InText");
+    const AnalysisCount = displayWordCount("Analysis and discussion_InText");
+    const GraphAnalysisCount = displayWordCount("GraphAnalysis_InText");
+    const RefGraphCount = displayWordCount("RefGraph_InText");
+    const ApplicationsCount = displayWordCount("Applications_InText");
+    const ConclusionCount = displayWordCount("Conclusion_InText");
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    const totalWordCount = IntroductionCount + AnalysisCount + GraphAnalysisCount + RefGraphCount + ApplicationsCount + ConclusionCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
   // Run the function for specific sections and display total count when the page loads
   window.onload = displayTotalWordCount;
 </script>
+  
+</body>
+</html>
 
