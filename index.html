@@ -351,19 +351,15 @@ document.getElementById("date&time").innerHTML=d;
             document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
         }
     }
-    // Function to verify the last update time by re-fetching it from the API
     async function verifyLastUpdatedTime() {
         document.getElementById('last-updated').innerText = 'Verifying...';
         await getLastUpdatedTime();
         alert("Last modified time has been successfully verified from GitHub API.");
     }
-    // Initial load to display the time on page load
+   
     window.onload = getLastUpdatedTime;
 </script>
-<!-- //////////////////////////////////////////////////////////////////////////////// -->
-  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-<!-- Placeholder for total word count -->
+
 <p id="totalWordCount"></p>
 <hr>
 <script>
@@ -381,10 +377,13 @@ document.getElementById("date&time").innerHTML=d;
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
+    const IntroductionCount = displayWordCount("Introduction");
+     const MechanicalpropertiesCount = displayWordCount("Mechanical Properties")
+    const AnalysisCount = displayWordCount("Analysis and discussion");
+     const ApplicationsinconstructionCount = displayWordCount("Applications in construction")
+    const ConclusionCount = displayWordCount("Conclusion")
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    const totalWordCount = IntroductionCount + AnalysisCount + MechanicalpropertiesCount + AnalysisCount + ApplicationsinconstructionCount + ConclusionCount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
