@@ -116,6 +116,7 @@
        challenges like susceptibility to pests and fungi highlight the need for proper maintenance. This article delves into
        the properties, advantages, and limitations of bamboo, giving evidence to its potential to transform modern construction
        in an environmentally sustainable manner.    
+          <div id="Introduction">...</div>
     </pre>
     </p>
       
@@ -143,7 +144,7 @@
       which is comparable to lightweight woods but less dense than concrete (2,400 kg/m³) or steel (7850 kg/m³). Bamboos have low density, making them the 
       ideal choice for construction where  weight reduction is crucial especially for scaffolding and creating lightweight roof structures. <a href="https://iarjset.com/wp-content/uploads/2019/09/IARJSET.2019.6906.pdf"_blank">IARJSET,(2019)</a>
       
-      
+      <div id="MechanicalProperties">...</div>
     </pre>
 </p>
       <h3 id="Analysis and discussion">Analysis and discussion</h3>
@@ -205,7 +206,7 @@
   stiffer. But it's not as stiff as concrete at 30 GPa or steel at 200 GPa. This mix of stiffness and flexibility is great in building. It helps
   bamboo absorb and spread stress, especially during earthquakes. This is why bamboo is often used in lightweight structures like bridges and roofs,
   where flexibility and strength are very important.
-   
+   <div id="AnalysisAndDiscussion">...</div>
  </pre>
 </p>
   
@@ -234,7 +235,7 @@
     throughout the joints, ensuring the structure can handle a large weight without collapsing.
        <img src="scaffolding.png" alt="Bamboo Scaffolding" width="500" height="300"> 
        <figcaption> Bamboo scaffolding in use (The Contructor, 2016). <a href="https://theconstructor.org/building/bamboo-as-a-building-material-uses-advantages/14838/" target="_blank">[online] Available here</a>. </figcaption>
-          
+         
   2.<u>Roofing</u>
    There are three types of bamboo roofing: 
   (1) <b>Thatch Bamboo Roofs</b> : They are mostly found in tropical regions like Bali, Indonesia, where dried grass are used for insulation and are flexible enough to provide 
@@ -266,7 +267,7 @@
         <img src="LuumTemple.jpg" alt="Luum Temple" width="500" height="300"> 
     <figcaption> Luum Temple, Mexico ArchDaily. (2019). Templo Luum / Co-Lab Design Office. 
   [online] Available at: <a href="https://www.archdaily.mx/mx/919123/templo-luum-co-lab-design-office" target="_blank">https://www.archdaily.mx/mx/919123/templo-luum-co-lab-design-office</a> [Accessed 6 Dec. 2024]. </figcaption>
-          
+          <div id="ApplicationsInConstruction">...</div>
         </pre>
       <h3 id="Conclusion">Conclusion</h3>
       <p class="ex1">
@@ -275,7 +276,7 @@
   for diverse applications, from scaffolding to roofing solutions and resilient bridges. While there are challenges such as pest susceptibility, proper treatment can 
   help resolve these issues. Overall, bamboo's strength, flexibility, and eco-friendliness makes it an optimal option in modern construction,
   paving the way for more sustainable engineering practices in the future.
-       
+       <div id="Conclusion">...</div>
         </pre>
     
  <h3 id="References">References</h3>
@@ -315,18 +316,30 @@ document.getElementById("date&time").innerHTML=d;
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
-    <!-- Last commit time display -->
+   <!-- Last commit time display -->
 <div id="last-updated">Loading last update time...</div>
+
 <!-- Verify Button -->
 <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
     Verify Last Modified Time
 </button>
+
+<div id="Introduction">Introduction content goes here...</div>
+<div id="MechanicalProperties">Mechanical properties content goes here...</div>
+<div id="AnalysisAndDiscussion">Analysis and discussion content goes here...</div>
+<div id="ApplicationsInConstruction">Applications in construction content goes here...</div>
+<div id="Conclusion">Conclusion content goes here...</div>
+
+<p id="totalWordCount"></p>
+<hr>
+
 <script>
+    // GitHub API function
     async function getLastUpdatedTime() {
         const username = 'FEPSFY6901368';
         const repo = 'FY6901368';
-       
         const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+
         try {
             const response = await fetch(url, {
                 method: 'GET',
@@ -340,8 +353,6 @@ document.getElementById("date&time").innerHTML=d;
             const commits = await response.json();
             if (commits && commits.length > 0) {
                 const lastCommitDate = new Date(commits[0].commit.committer.date);
-               
-                // Displaying the time on load
                 document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
             } else {
                 document.getElementById('last-updated').innerText = 'No commits found in the repository.';
@@ -351,44 +362,35 @@ document.getElementById("date&time").innerHTML=d;
             document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
         }
     }
+
     async function verifyLastUpdatedTime() {
         document.getElementById('last-updated').innerText = 'Verifying...';
         await getLastUpdatedTime();
         alert("Last modified time has been successfully verified from GitHub API.");
     }
-   
-    window.onload = getLastUpdatedTime;
-</script>
 
-<p id="totalWordCount"></p>
-<hr>
-<script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction");
-     const MechanicalpropertiesCount = displayWordCount("Mechanical Properties")
-    const AnalysisCount = displayWordCount("Analysis and discussion");
-     const ApplicationsinconstructionCount = displayWordCount("Applications in construction")
-    const ConclusionCount = displayWordCount("Conclusion")
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount + MechanicalpropertiesCount + AnalysisCount + ApplicationsinconstructionCount + ConclusionCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
+    // Word count functions
+    function displayWordCount(sectionId) {
+        const text = document.getElementById(sectionId)?.textContent || '';
+        const wordArray = text.trim().split(/\s+/);
+        return wordArray.length;
+    }
+
+    function displayTotalWordCount() {
+        const IntroductionCount = displayWordCount("Introduction");
+        const MechanicalPropertiesCount = displayWordCount("MechanicalProperties");
+        const AnalysisCount = displayWordCount("AnalysisAndDiscussion");
+        const ApplicationsInConstructionCount = displayWordCount("ApplicationsInConstruction");
+        const ConclusionCount = displayWordCount("Conclusion");
+
+        const totalWordCount = IntroductionCount + MechanicalPropertiesCount + AnalysisCount + ApplicationsInConstructionCount + ConclusionCount;
+        document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+    }
+
+    // Combine onload functions
+    window.onload = function () {
+        getLastUpdatedTime();
+        displayTotalWordCount();
+    };
 </script>
-  </body>
-</html>
+    </html>
