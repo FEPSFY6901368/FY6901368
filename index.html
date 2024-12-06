@@ -391,6 +391,13 @@ document.getElementById("date&time").innerHTML=d;
     window.onload = function () {
         getLastUpdatedTime();
         displayTotalWordCount();
+      const element = document.getElementById("last-updated");
+if (element) {
+    element.innerText = "Could not fetch the last updated time.";
+} else {
+    console.error("Element with ID 'last-updated' not found!");
+}
+
     };
 </script>
     </html>
