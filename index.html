@@ -232,7 +232,7 @@
     vertical forces like weight of workers and heavy materials to join with the nodes effectively in th elashing. This helps distribute the weight equally 
     throughout the joints, ensuring the structure can handle a large weight without collapsing.
           <img src="scaffolding.png" alt="Bamboo Scaffolding" width="500" height="300"> 
-          <figcaption> Bamboo scaffolding in use (The Contructor, 2016).</figcaption>
+          <figcaption> Bamboo scaffolding in use (The Contructor, 2016). <a href="https://theconstructor.org/building/bamboo-as-a-building-material-uses-advantages/14838/" target="_blank">[online] Available here</a>. </figcaption>
   2.<u>Roofing</u>
    There are three types of bamboo roofing: 
   (1) <b>Thatch Bamboo Roofs</b> : They are mostly found in tropical regions like Bali, Indonesia, where dried grass are used for insulation and are flexible enough to provide 
@@ -247,6 +247,7 @@
       resistance and thermal insulation. (<a href="https://doi.org/10.6007/ijarbss/v12-i12/15170" target="_blank">Wan Mohammad et al., 2022</a>).
           
  <img src="BambooRoofing.jpeg" alt="Bamboo Roofing" width="500" height="300"> 
+  <figcaption>Figure 1: Bamboo roofing (https://goodshomedesign.com/author/admin-2, 2015). How to Build With Bamboo: 19 Projects You Can Do at Home. [online] Home Design, Garden & Architecture Blog Magazine. Available at: <a href="https://goodshomedesign.com/how-to-build-with-bamboo-19-projects-you-can-do-at-home/" target="_blank">https://goodshomedesign.com/how-to-build-with-bamboo-19-projects-you-can-do-at-home/</a> [Accessed 6 Dec. 2024]. </figcaption>
           
   3. <u>Bridges</u>
     Bamboo footbridges are common especially in Southeast Asia. They have a significantly lower carbon footprint compared to traditional materials like concrete. Projects like 
@@ -297,79 +298,4 @@ ArchDaily. (2022). Is Bamboo a Safe Construction Material in Natural Disasters L
 //Javascript to display the date and time on my webpage
 const d = new Date();
 document.getElementById("date&time").innerHTML=d;
-  <!-- Last commit time display -->
-<div id="last-updated">Loading last update time...</div>
-<!-- Verify Button -->
-<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-    Verify Last Modified Time
-</button>
-<script>
-    async function getLastUpdatedTime() {
-        const username = 'nr0025';
-        const repo = 'FY0025';
-       
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json',
-                }
-            });
-            if (!response.ok) {
-                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
-            }
-            const commits = await response.json();
-            if (commits && commits.length > 0) {
-                const lastCommitDate = new Date(commits[0].commit.committer.date);
-               
-                // Displaying the time on load
-                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-            } else {
-                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
-            }
-        } catch (error) {
-            console.error('Error fetching the last updated time:', error);
-            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
-        }
-    }
-    // Function to verify the last update time by re-fetching it from the API
-    async function verifyLastUpdatedTime() {
-        document.getElementById('last-updated').innerText = 'Verifying...';
-        await getLastUpdatedTime();
-        alert("Last modified time has been successfully verified from GitHub API.");
-    }
-    // Initial load to display the time on page load
-    window.onload = getLastUpdatedTime;
-</script>
-
-      <!-- Placeholder for total word count -->
-<p id="totalWordCount"></p>
-<hr>
-<script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
-</script>
-      
-
+ 
